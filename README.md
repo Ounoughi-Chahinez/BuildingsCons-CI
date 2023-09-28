@@ -11,7 +11,7 @@
 
 ### Required files/inputs:
 
-1. The current data: elering-data.csv, weather-data.csv
+1. The current data: elering-data.csv, weather-data.csv, elering_pred-data.csv (Future 12 hours market data)
 
 2. The Meters dictionary: Meters_dictionary.csv
 
@@ -22,7 +22,6 @@
 5. The Weather Condition dictionary: WeatherCondition_dictionary.csv
 
 6. The Weather Wind dictionary: WeatherWind_dictionary.csv
-
 
 ### To get the prediction:
 
@@ -56,4 +55,4 @@
 
 ### Run the predictions script
 
-python3 Predictions.py --elering_path=elering-data.csv --weather_path=weather-data.csv --new_value=0.08536 --Meter_name=ICT_JK1_EM1.Total  --d_path=Meters_dictionary.csv --d_WC_path WeatherCondition_dictionary.csv --d_WW_path WeatherWind_dictionary.csv --model_path=Model-CNNLSTM.h5 --pred_path=preds.csv
+python3 Predictions.py --elering_path=elering-data.csv --elering_pred_path=elering_pred-data.csv --weather_path=weather-data.csv --new_value=0.08536 --Meter_name=ICT_JK1_EM1.Total  --d_path=Meters_dictionary.csv --d_WC_path WeatherCondition_dictionary.csv --d_WW_path WeatherWind_dictionary.csv --model_path=Model-CNNLSTM.h5 --pred_path=preds.csv
