@@ -16,11 +16,11 @@ def get_shared_arg_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--Meter_name', type=int,  help='The Meter name')
     parser.add_argument('--new_value', type=float, default=0, help='The new consumption value comming from the meter')
-    parser.add_argument('--d_path', type=str,default='Meters_dictionary.csv', help='Meters codes Dictionary path')
-    parser.add_argument('--d_WC_path', type=str,default='WeatherCondition_dictionary.csv', help='Weather Condition Dictionary path')
-    parser.add_argument('--d_WW_path', type=str,default='WeatherWind_dictionary.csv', help='Weather Wind Dictionary path')
-    parser.add_argument('--model_path',type=str, default='Model-CNNLSTM.h5', help='Model path')
-    parser.add_argument('--pred_path', type=str,default='preds.csv', help='Save predictions path')
+    parser.add_argument('--d_path', type=str,default='Data/Meters_dictionary.csv', help='Meters codes Dictionary path')
+    parser.add_argument('--d_WC_path', type=str,default='Data/WeatherCondition_dictionary.csv', help='Weather Condition Dictionary path')
+    parser.add_argument('--d_WW_path', type=str,default='Data/WeatherWind_dictionary.csv', help='Weather Wind Dictionary path')
+    parser.add_argument('--model_path',type=str, default='Model/Model-CNNLSTM.h5', help='Model path')
+    parser.add_argument('--pred_path', type=str,default='Results/preds.csv', help='Save predictions path')
     
     return parser
 
