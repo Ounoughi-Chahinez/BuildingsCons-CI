@@ -91,7 +91,7 @@ def planned_energy(current_datetime):
     
     current_datetime = current_datetime.astimezone(pytz.utc) - datetime.timedelta(hours=3)
     # Calculate the datetime 12 hours from now
-    end_datetime = current_datetime + datetime.timedelta(hours=15)
+    end_datetime = current_datetime + datetime.timedelta(hours=14)
     # Format the datetime in the desired format
     start_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") 
     end_datetime = end_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
@@ -204,14 +204,15 @@ def prepare_data(Meter_name, d, d_WC, d_WW, current_datetime, new_value):
     filtered_weather = weather[weather['Time'].dt.hour == current_datetime.hour + 1]
     # Elering data preprocessing
     elering = planned_energy(current_datetime)
-    filtered_elering = elering[elering['Kuupäev (Eesti aeg)'].dt.hour == current_datetime.hour][['ee_fi', 'ee_lv', 'ee_ru','Tarbimine','Tootmine', 'Tuuleparkide toodang','Päikeseenergia toodang']]
+    filtered_elering = elering.iloc[0,:][['ee_fi', 'ee_lv', 'ee_ru','Tarbimine','Tootmine', 'Tuuleparkide toodang','Päikeseenergia toodang']]
     return elering, filtered_weather[['Temp.', 'Dew Point', 'Humidity',
-       'Wind Speed', 'Pressure', 'Precip', 'Wind', 'Conditions']].iloc[0,:].tolist()+filtered_elering.iloc[0,:].tolist()+ [current_datetime.month, current_datetime.hour,current_datetime.weekday()] + [meter_code, new_value]
+       'Wind Speed', 'Pressure', 'Precip', 'Wind', 'Conditions']].iloc[0,:].tolist()+filtered_elering.tolist()+ [current_datetime.month, current_datetime.hour,current_datetime.weekday()] + [meter_code, new_value]
     
 
 # Function that returns the next 12h consumption prediction values:
 def future_preditcion(Meter_name, d, d_WC, d_WW, model,current_datetime, pred_path, new_value):
     elering, Input_data = prepare_data(Meter_name, d, d_WC, d_WW, current_datetime, new_value)
+    Input_data = [0 if pd.isna(x) else x for x in Input_data]
     pred = model.predict(np.array(Input_data).reshape(1, 20, 1).astype(np.float32))
     CI = carbon_intensity(pred, elering,current_datetime)
     predictions = pd.read_csv(pred_path)
