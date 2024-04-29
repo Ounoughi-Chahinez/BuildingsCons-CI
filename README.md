@@ -49,7 +49,7 @@ For training the model, one year (2022) of historical data from the buildings' c
 ### Carbon Intensity Calculation
 Elering provides planned energy data, allowing for the computation of carbon intensity using the following formula:
 
-\[ G = \frac{f + (I \times 0.1)}{|E| + pred} \]
+G = (f + (I * 0.1)) / (|E| + pred)
 
 Where:
 - \( G \) is the carbon intensity.
