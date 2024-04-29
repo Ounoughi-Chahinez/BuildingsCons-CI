@@ -65,6 +65,9 @@ Where:
 - \( pred \) is the predicted energy consumption.
 
 This formula calculates the carbon intensity based on predicted energy consumption, Elering data, and the current datetime.
+![Reference](images/carbonintensity.png)
+
+
 
 ### Getting Predictions
 To obtain predictions for energy consumption, follow these steps:
