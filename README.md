@@ -53,7 +53,7 @@ The predictive model utilized in this solution is a Convolutional Neural Network
 - **Python Packages**: The solution requires the following Python packages: pandas, numpy, keras, selenium, and bs4.
 
 ### Carbon Intensity Calculation
-Elering provides planned energy data, allowing for the computation of carbon intensity using the following formula:
+Elering provides planned energy and I/E data  ('Planned production', 'Wind farm production forecast', 'Solar energy production forecast'), allowing for the computation of carbon intensity using the following formula:
 
 G = (f + (I * 0.1)) / (|E| + pred)
 
