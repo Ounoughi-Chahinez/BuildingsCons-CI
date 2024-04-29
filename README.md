@@ -1,4 +1,10 @@
-# ReadMe
+# Relatedness and Product Complexity Meet Gravity Models of International Trade
+
+Authors: Marek Tiits, Tarmo Kalvet, Chahinez Ounoughi, and Sadok Ben Yahia
+
+Journal of Open Innovation: Technology, Market, and Complexity (ELS)
+
+---
 
 ### Required files/inputs:
 
