@@ -49,14 +49,14 @@ For training the model, one year (2022) of historical data from the buildings' c
 ### Carbon Intensity Calculation
 Elering provides planned energy data, allowing for the computation of carbon intensity using the following formula:
 
-\[ G = \frac{f + (I \times 0.1)}{|E| + \text{pred}} \]
+\[ G = \frac{f + (I \times 0.1)}{|E| + pred} \]
 
 Where:
 - \( G \) is the carbon intensity.
 - \( f \) is the planned energy minus the sum of wind and solar energy predictions.
 - \( I \) is the total positive import of energy.
 - \( E \) is the total negative export of energy.
-- \( \text{pred} \) is the predicted energy consumption.
+- \( pred \) is the predicted energy consumption.
 
 This formula calculates the carbon intensity based on predicted energy consumption, Elering data, and the current datetime.
 
@@ -70,7 +70,7 @@ The predictive model utilized in this solution is a Convolutional Neural Network
 To obtain predictions for energy consumption, follow these steps:
 
 1. **Replace Paths**: Adjust the paths in the command according to your directory structure.
-2. **Run the Script**: Execute the predictions script `Predictions.py` using Python 3, providing the necessary arguments including the meter name (`--Meter_name`), the new energy consumption value (`--new_value`), and the paths to data dictionaries and the model.
+2. **Run the Script**: Execute the predictions script `Predictions.py` using Python 3, providing the necessary arguments, including the meter name (`--Meter_name`), the new energy consumption value (`--new_value`), and the paths to data dictionaries and the model.
    
 ### List of Meters names (18 meters in 8 different buildings):
 
