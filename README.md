@@ -46,6 +46,12 @@ For training the model, one year (2022) of historical data from the buildings' c
 - `Meter_code`
 - `Meter_consumption`
 
+### Model
+The predictive model utilized in this solution is a Convolutional Neural Network (CNN) combined with Long Short-Term Memory (LSTM) architecture. The model is trained to forecast energy consumption based on historical data and external factors such as weather conditions.
+
+- **Model File**: The trained model is saved as `Model/Model-CNNLSTM.h5`.
+- **Python Packages**: The solution requires the following Python packages: pandas, numpy, keras, selenium, and bs4.
+
 ### Carbon Intensity Calculation
 Elering provides planned energy data, allowing for the computation of carbon intensity using the following formula:
 
@@ -59,12 +65,6 @@ Where:
 - \( pred \) is the predicted energy consumption.
 
 This formula calculates the carbon intensity based on predicted energy consumption, Elering data, and the current datetime.
-
-### Model
-The predictive model utilized in this solution is a Convolutional Neural Network (CNN) combined with Long Short-Term Memory (LSTM) architecture. The model is trained to forecast energy consumption based on historical data and external factors such as weather conditions.
-
-- **Model File**: The trained model is saved as `Model/Model-CNNLSTM.h5`.
-- **Python Packages**: The solution requires the following Python packages: pandas, numpy, keras, selenium, and bs4.
 
 ### Getting Predictions
 To obtain predictions for energy consumption, follow these steps:
